@@ -2,8 +2,8 @@
 =========================================================
 Name        : lab5_exe_C.html
 Assignment  : Lab 5, Exercise C
-Author(s)   : Mahdi Ansari, William Arthur Philip Louis
-Submission  : May 21, 2030
+Author(s)   : Evan Mann, Matthew McDougall
+Submission  : Feb 14, 2024
 Description : DOM Elements.
 =========================================================
 -->
@@ -206,33 +206,69 @@ Description : DOM Elements.
 		<script>
 			document.addEventListener('DOMContentLoaded', function afterRender() {
 				// Task 1: Set the text content of all elements with the class 'companyName' and remove their border
-
+				var companyNameElms = document.getElementsByClassName('companyName');
+				for (var i = 0; i < companyNameElms.length; i++) { 
+					companyNameElms[i].style.border = 'none';
+					companyNameElms[i].textContent = "Evan Mann"
+				}
 
 				// Task 2: Change the background color of the navigation bar
-				
+				var navBar = document.getElementsByTagName('nav')
+				navBar[0].style.backgroundColor = 'green'
 
 				// Task 3: Hide the section titled 'What is full-stack?'
-
+				var article = document.getElementsByTagName('article')
+				article[0].style.display = 'none'
 
 				// Task 4: Create a new <p> element and append it to the 'About Us' section
+				var parent = document.getElementsByClassName('container')
+				var child = document.createElement('p')
+				var newP = parent[0].children[0].appendChild(child)
+				newP.textContent = 'This is a new paragraph'
+				newP.style.color = 'red'
 
 
 				// Task 5: Add placeholders to input elements based on their corresponding label IDs
+				var nameInput = document.getElementById('name')
+				var emailInput = document.getElementById('email')
+				var messageInput = document.getElementById('message')
 
+				nameInput.placeholder = 'Name'
+				emailInput.placeholder = 'Email'
+				messageInput.placeholder = 'Message'
 
 				// Task 6: Set the src attribute of the image
-
+				var parent = document.getElementsByClassName('container')
+				var img = parent[0].children[0].children[2]
+				img.src = './images/example.svg'
 
 				// Task 7: Add a new item in the navigation menu
-
+				var newNav = document.createElement('li')
+				var navContent = document.createElement('a')
+				navContent.href = '#'
+				navContent.textContent = 'Blog'
+				newNav.appendChild(navContent)
+				document.getElementsByTagName('nav')[0].children[0].appendChild(newNav)
 
 				// Task 8: Change the submit button text upon clicking and make it disabled
+				var button = document.querySelector('section form input[type=button]')
 
+				button.addEventListener("click", function() 
+				{
+					button.value = 'Submitted'
+					button.disabled = 'true'
+					
+				})
 
 				// Task 9: Change the text color of each item in the 'Related Links' to green
-
+				var relatedLinks = document.querySelector('aside ul')
+				relatedLinks.children[0].children[0].style.color = 'green'
+				relatedLinks.children[1].children[0].style.color = 'green'
 
 				// Task 10: Add a red solid border to the footer
+				var footer = document.getElementsByTagName('footer')[0]
+				footer.style.border = '2px solid red'
+
 			});
 		</script>
 	</body>
